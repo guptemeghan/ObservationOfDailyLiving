@@ -1,0 +1,120 @@
+select * from USERS
+
+insert into USERS values ('ggeorge', 'Gary George', '2806 Conifer Drive, Raleigh, NC 27606', 23, 'M','geo123', 'Yes','',0);
+insert into USERS values ('akazi', 'Adnan Kazi', '1234 Capability Drive, Raleigh, NC 27655', 31, 'F','kazi123', 'Yes','',0);
+insert into USERS values ('nshetty', 'Neha Shetty', '440 Sullivan Drive, Chapel Hill, NC 27517', 40, 'F','shetty123', 'Yes','',0);
+insert into USERS values ('scooper', 'Sheldon Cooper', '2808 Avent Ferry Road, Raleigh, NC 27616', 33, 'F','cooper123', 'Yes','',0);
+insert into USERS values ('mwatson', 'Michael Watson', '2222 Gorman Street, Raleigh, NC 27678', 47, 'M','watson123', 'Yes','',0);
+insert into USERS values ('tkerr', 'Tom Kerr', '1430 Collegeview Ave,Durham, NC 27701', 40, 'M','tkerr123', 'Yes','',0);
+insert into USERS values ('mtran', 'Maya Tran', '100 Brown Circle,Chapel Hill, NC 27516', 37, 'F','tran123', 'Yes','',0);
+
+insert into USERS values ('ahussain', 'Altaf Hussain', '2343 Champion Court', '25', 'M','hussain123', '','Dayview',1);
+insert into USERS values ('mjoseph', 'Manu Joseph', '2300 Champion Court', '30', 'M','joseph123', '','Dayview',1);
+insert into USERS values ('slee', 'Altaf Hussain', '2337 Champion Court', '35', 'M','lee123', '','Huntington',1);
+insert into USERS values ('sprasad', 'Shyam Prasad', '2386 Champion Court', '40', 'M','prasad123', '','Huntington',1);
+
+
+select * from CATEGORY
+
+insert into CATEGORY values (category_seq.NEXTVAL, 'Behavioral');
+insert into CATEGORY values (category_seq.NEXTVAL, 'Physiological');
+insert into CATEGORY values (category_seq.NEXTVAL, 'Psychological');
+
+select * from PATIENTCLASS
+
+insert into PATIENTCLASS values (ptclass_seq.NEXTVAL, 'HIV', 'ggeorge' );
+insert into PATIENTCLASS values (ptclass_seq.NEXTVAL, 'Obesity', 'akazi' );
+insert into PATIENTCLASS values (ptclass_seq.NEXTVAL, 'High Risk Pregnancy', 'akazi' );
+insert into PATIENTCLASS values (ptclass_seq.NEXTVAL, 'Obesity', 'nshetty' );
+insert into PATIENTCLASS values (ptclass_seq.NEXTVAL, 'High Risk Pregnancy', 'nshetty' );
+insert into PATIENTCLASS values (ptclass_seq.NEXTVAL, 'COPD,', 'scooper' );
+insert into PATIENTCLASS values (ptclass_seq.NEXTVAL, 'HIV', 'scooper' );
+insert into PATIENTCLASS values (ptclass_seq.NEXTVAL, 'COPD,', 'mwatson' );
+insert into PATIENTCLASS values (ptclass_seq.NEXTVAL, 'COPD,', 'tkerr' );
+insert into PATIENTCLASS values (ptclass_seq.NEXTVAL, 'Obesity', 'tkerr' );
+insert into PATIENTCLASS values (ptclass_seq.NEXTVAL, 'High Risk Pregnancy', 'mtran' );
+
+
+select * from TYPE
+
+insert into TYPE values (type_seq.NEXTVAL,'Diet', 'What was consumed?','Amount','','HIV', 2);
+insert into TYPE values (type_seq.NEXTVAL,'Weight', 'Amount','','','HIV', 3);
+insert into TYPE values (type_seq.NEXTVAL,'Exercise', 'Walking,cycling,or jogging','Duration: number of minutes','','HIV', 2);
+insert into TYPE values (type_seq.NEXTVAL,'Mood', 'happy, sad, neutral','','','HIV', 4);
+
+insert into TYPE values (type_seq.NEXTVAL,'Diet', 'What was consumed?','Amount','','COPD', 2);
+insert into TYPE values (type_seq.NEXTVAL,'Weight', 'Amount','','','COPD', 3);
+insert into TYPE values (type_seq.NEXTVAL,'Exercise', 'Walking,cycling,or jogging','Duration: number of minutes','','COPD', 2);
+insert into TYPE values (type_seq.NEXTVAL,'Mood', 'happy, sad, neutral','','','COPD', 4);
+
+insert into TYPE values (type_seq.NEXTVAL,'Diet', 'What was consumed?','Amount','','Obesity', 2);
+insert into TYPE values (type_seq.NEXTVAL,'Weight', 'Amount','','','Obesity', 3);
+insert into TYPE values (type_seq.NEXTVAL,'Exercise', 'Walking,cycling,or jogging','Duration: number of minutes','','Obesity', 2);
+insert into TYPE values (type_seq.NEXTVAL,'Mood', 'happy, sad, neutral','','','Obesity', 4);
+
+insert into TYPE values (type_seq.NEXTVAL,'Diet', 'What was consumed?','Amount','','High Risk Pregnancy', 2);
+insert into TYPE values (type_seq.NEXTVAL,'Weight', 'Amount','','','High Risk Pregnancy', 3);
+insert into TYPE values (type_seq.NEXTVAL,'Exercise', 'Walking,cycling,or jogging','Duration: number of minutes','','High Risk Pregnancy', 2);
+insert into TYPE values (type_seq.NEXTVAL,'Mood', 'happy, sad, neutral','','','High Risk Pregnancy', 4);
+
+
+insert into TYPE values (type_seq.NEXTVAL,'Temperature', 'Amount in Fahrenheit','','','HIV', 3);
+
+insert into TYPE values (type_seq.NEXTVAL,'Exercise Tolerance', 'Steps before exhaustion','','','COPD', 3);
+insert into TYPE values (type_seq.NEXTVAL,'Oxygen Saturation', 'fraction of hemoglobin','','','COPD', 3);
+
+insert into TYPE values (type_seq.NEXTVAL,'Pain', 'Scale [1 – 10]','','','High Risk Pregnancy', 3);
+insert into TYPE values (type_seq.NEXTVAL,'Contraction', 'Frequency - # per hour','','','High Risk Pregnancy', 3);
+insert into TYPE values (type_seq.NEXTVAL,'Blood Pressure', 'Systolic','Diastolic','','High Risk Pregnancy', 3);
+
+insert into TYPE values (type_seq.NEXTVAL,'Blood Pressure', 'Systolic','Diastolic','','Obesity', 3);
+
+create table infodetails(
+infoid integer not null primary key,
+infoname varchar2(20),
+infothreshold integer,
+tname varchar2(20),
+ctid integer not null references Category(cid)
+);
+create sequence info_seq;
+
+
+select * from INFODETAILS
+
+insert into INFODETAILS values (info_seq.NEXTVAL,'What was consumed?','','Diet',2);
+insert into INFODETAILS values (info_seq.NEXTVAL,'Amount?','','Diet',2);
+
+insert into INFODETAILS values (info_seq.NEXTVAL,'Amount','','Weight',3);
+
+insert into INFODETAILS values (info_seq.NEXTVAL,'Kind of Exercise','','Exercise',2);
+insert into INFODETAILS values (info_seq.NEXTVAL,'Duration','','Exercise',2);
+
+insert into INFODETAILS values (info_seq.NEXTVAL,'Systolic',140,'Blood Pressure',3);
+insert into INFODETAILS values (info_seq.NEXTVAL,'Diasystolic',90,'Blood Pressure',3);
+
+insert into INFODETAILS values (info_seq.NEXTVAL,'Number of steps','','Exercise Tolerance',3);
+
+insert into INFODETAILS values (info_seq.NEXTVAL,'Haemoglobin amount',88,'Oxygen Saturation',3);
+
+insert into INFODETAILS values (info_seq.NEXTVAL,'Amount',7,'Pain',2);
+
+insert into INFODETAILS values (info_seq.NEXTVAL,'Happy,sad or neutral','','Mood',4);
+
+insert into INFODETAILS values (info_seq.NEXTVAL,'Frequency-# per hour',4,'Contraction',3);
+
+insert into INFODETAILS values (info_seq.NEXTVAL,'Amount in Fraenheit',102,'Temperature',3);
+
+select * from HEALTHFRIENDS
+
+insert into HealthFriends values (hf_seq.NEXTVAL,'ggeorge','akazi','21-May-11');
+insert into HealthFriends values (hf_seq.NEXTVAL,'nshetty','tkerr','22-April-90');
+insert into HealthFriends values (hf_seq.NEXTVAL,'mtran','nshetty','1-Jan-04');
+insert into HealthFriends values (hf_seq.NEXTVAL,'scooper','mwatson','13-July-09');
+
+select * from OBSERVATIONS
+
+
+
+
+
+

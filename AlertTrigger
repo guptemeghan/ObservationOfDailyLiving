@@ -1,0 +1,24 @@
+DELIMITER @@
+CREATE OR REPLACE TRIGGER APRASAD3.generateAlertTrigger
+BEFORE INSERT on observations
+REFERENCING NEW as N_ROW
+FOR EACH ROW
+DECLARE
+  l_exists INTEGER;
+BEGIN
+  SELECT COUNT(*) INTO l_exists 
+        FROM observations o,infodetails i 
+	WHERE (((i.operation='1' and (:N_ROW.info1text=i.infoname and :N_ROW.info1value>i.infothreshold and NOT i.infothreshold IS NULL))
+		or (i.operation='2' and (:N_ROW.info1text=i.infoname and :N_ROW.info1value<i.infothreshold and NOT i.infothreshold IS NULL))
+		or (i.operation='3' and (:N_ROW.info1text=i.infoname and :N_ROW.info1value>=i.infothreshold and NOT i.infothreshold IS NULL))
+		or (i.operation='4' and (:N_ROW.info1text=i.infoname and :N_ROW.info1value<=i.infothreshold and NOT i.infothreshold IS NULL)))
+	OR ((i.operation='1' and (:N_ROW.info2text=i.infoname and :N_ROW.info2value>i.infothreshold and NOT i.infothreshold IS NULL))
+		or (i.operation='2' and (:N_ROW.info2text=i.infoname and :N_ROW.info2value<i.infothreshold and NOT i.infothreshold IS NULL))
+		or (i.operation='3' and (:N_ROW.info2text=i.infoname and :N_ROW.info2value>=i.infothreshold and NOT i.infothreshold IS NULL))
+		or (i.operation='4' and (:N_ROW.info2text=i.infoname and :N_ROW.info2value<=i.infothreshold and NOT i.infothreshold IS NULL))))
+	AND :N_ROW.tname=i.tname;
+IF l_exists > 0 THEN
+	insert into alerts values (alert_seq.nextval, :N_ROW.tname,'',:N_ROW.ptid,0,sysdate); 
+ END IF;
+END; @@
+DELIMITER ; 

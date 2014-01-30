@@ -1,0 +1,99 @@
+create table Users(
+id varchar2(20) not null primary key,
+name varchar2(50) not null,
+address varchar2(100) not null,
+Age  integer not null,
+sex  char(1) not null,
+password varchar2(20) not null,
+status varchar2(20),
+clinic varchar2(30),
+usertype integer not null,
+City varchar2(30),
+State varchar2(20),
+Pincode varchar2(10)
+);
+
+
+create table PatientClass (
+cid integer not null primary key,
+cname  varchar2(50) not null,
+ptid varchar2(20) not null references Users(id)
+);
+create sequence ptclass_seq;
+
+
+create table Category(
+cid integer not null primary key,
+cname varchar2(30)
+);
+create sequence category_seq;
+
+
+create table Type(
+tid integer not null primary key,
+tname varchar2(20),
+info1 varchar2(30),
+info2 varchar2(30),
+info3 varchar2(30),
+class varchar2(50),
+ptid varchar2(20),
+generalFlag integer,
+ctid integer not null references Category(cid)
+); 
+create sequence type_seq;
+
+
+create table Observations(
+oid integer primary key,
+dtimeobserve TIMESTAMP,
+dtimerecord TIMESTAMP,
+ptid varchar2(50) not null references Users(id),
+tyid varchar2(50);
+info1text varchar2(30),
+info2text varchar2(30),
+info3text varchar2(30),
+info1value varchar2(50),
+info2value varchar2(50),
+info3value varchar2(50)
+);
+create sequence observation_seq;
+
+create table infodetails(
+infoid integer not null primary key,
+infoname varchar2(20),
+infothreshold integer,
+tyid integer not null references Type(tid),
+ctid integer not null references Category(cid)
+);
+create sequence info_seq;
+
+create table HealthFriends(
+hfid integer not null primary key,
+patientid varchar2(50) not null references Users(id),
+friendid varchar2(50) not null references Users(id),
+initDate date
+);
+create sequence hf_seq;
+
+create table alerts(
+alertid integer not null primary key,
+tname varchar2(50),
+info1text varchar2(20),
+info1value varchar2(20),
+info2text varchar2(20),
+info2value varchar2(20),
+ptid varchar2(20),
+indicator varchar2(20),
+alertdate date
+);
+create sequence alert_seq;
+
+create table HealthFriendMessages(
+msgid integer not null primary key,
+msgfrom varchar2(40),
+msgto varchar2(40),
+msgtext varchar(500),
+readFlag integer,
+sentDate date
+);
+create sequence msg_seq;

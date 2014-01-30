@@ -1,0 +1,208 @@
+--insert into HealthFriends values (hf_seq.NEXTVAL,'ggeorge','akazi','21-May-11');
+--insert into HealthFriends values (hf_seq.NEXTVAL,'nshetty','tkerr','22-April-90');
+--insert into HealthFriends values (hf_seq.NEXTVAL,'mtran','nshetty','1-Jan-04');
+--insert into HealthFriends values (hf_seq.NEXTVAL,'scooper','mwatson','13-July-09');
+--insert into HealthFriends values (hf_seq.NEXTVAL,'scooper','tkerr','13-July-09');
+--insert into HealthFriends values (hf_seq.NEXTVAL,'scooper','akazi','1-Jan-04');
+--insert into HealthFriends values (hf_seq.NEXTVAL,'scooper','mtran','26-Sep-13');
+--insert into HealthFriends values (hf_seq.NEXTVAL,'scooper','nshetty','26-Sep-13');
+--insert into HealthFriends values (hf_seq.NEXTVAL,'ggeorge','nshetty','26-Sep-13');
+--select * from HealthFriends
+
+insert into Observations values 
+(observation_seq.NEXTVAL,
+TO_DATE('20130504 08:15:00 AM','yyyymmdd hh:mi:ss AM'),
+TO_DATE('20130504 08:40:00 AM','yyyymmdd hh:mi:ss AM'),
+'scooper',
+'What was consumed?',
+'Amount',
+'',
+'egg 1, orange 0.5, toast 1, margarine 1',
+'',
+'',
+'Diet'
+);
+
+insert into Observations values 
+(observation_seq.NEXTVAL,
+TO_DATE('20130504 08:00:00 AM','yyyymmdd hh:mi:ss AM'),
+TO_DATE('20130504 08:05:00 AM','yyyymmdd hh:mi:ss AM'),
+'scooper',
+'Amount',
+'',
+'',
+'100',
+'',
+'',
+'Weight'
+);
+
+insert into Observations values 
+(observation_seq.NEXTVAL,
+TO_DATE('20130504 06:30:00 AM','yyyymmdd hh:mi:ss AM'),
+TO_DATE('20130504 07:35:00 AM','yyyymmdd hh:mi:ss AM'),
+'scooper',
+'Walking,cycling or jogging',
+'duration',
+'',
+'walking',
+'30',
+'',
+'Exercise'
+);
+
+insert into Observations values 
+(observation_seq.NEXTVAL,
+TO_DATE('20130504 9:00:00 ','yyyymmdd hh:mi:ss '),
+TO_DATE('20130504 9:00:00 ','yyyymmdd hh:mi:ss '),
+'scooper',
+'happy, sad or neutral',
+'',
+'',
+'nuetral',
+'',
+'',
+'Mood'
+);
+
+insert into Observations values 
+(observation_seq.NEXTVAL,
+TO_DATE('20130504 6:00:00 AM','yyyymmdd hh:mi:ss AM'),
+TO_DATE('20130504 6:10:00 AM','yyyymmdd hh:mi:ss AM'),
+'scooper',
+'Amount',
+'',
+'',
+'98.2',
+'',
+'',
+'Temperature'
+);
+
+insert into Observations values 
+(observation_seq.NEXTVAL,
+TO_DATE('20130504 11:00:00 AM','yyyymmdd hh:mi:ss AM'),
+TO_DATE('20130504 12:00:00 PM','yyyymmdd hh:mi:ss AM'),
+'scooper',
+'Steps before exhaustion',
+'',
+'',
+'20',
+'',
+'',
+'Exercise Tolerance'
+);
+
+insert into Observations values 
+(observation_seq.NEXTVAL,
+TO_DATE('20130504 10:00:00 AM','yyyymmdd hh:mi:ss AM'),
+TO_DATE('20130504 10:10:00 AM','yyyymmdd hh:mi:ss AM'),
+'scooper',
+'fraction of hemoglobin',
+'',
+'',
+'78%',
+'',
+'',
+'Oxygen Saturation'
+);
+
+insert into Observations values 
+(observation_seq.NEXTVAL,
+TO_DATE('20130504 08:00:00 AM','yyyymmdd hh:mi:ss AM'),
+TO_DATE('20130504 08:05:00 AM','yyyymmdd hh:mi:ss AM'),
+'scooper',
+'amount',
+'',
+'',
+'102',
+'',
+'',
+'Weight'
+);
+----------------------------------------------------------
+insert into Observations values 
+(observation_seq.NEXTVAL,
+TO_DATE('20130504 07:50:00 AM','yyyymmdd hh:mi:ss AM'),
+TO_DATE('20130504 08:00:00 AM','yyyymmdd hh:mi:ss AM'),
+'ggeorge',
+'amount',
+'',
+'',
+'150',
+'',
+'',
+'Weight'
+);
+
+insert into Observations values 
+(observation_seq.NEXTVAL,
+TO_DATE('20130604 08:00:00 AM','yyyymmdd hh:mi:ss AM'),
+TO_DATE('20130604 08:05:00 AM','yyyymmdd hh:mi:ss AM'),
+'ggeorge',
+'amount',
+'',
+'',
+'156',
+'',
+'',
+'Weight'
+);
+
+-------------------------------------------------------
+insert into Observations values 
+(observation_seq.NEXTVAL,
+TO_DATE('20130604 07:50:00 AM','yyyymmdd hh:mi:ss AM'),
+TO_DATE('20130604 08:00:00 AM','yyyymmdd hh:mi:ss AM'),
+'akazi',
+'Systolic',
+'Diastolic',
+'',
+'150',
+'96',
+'',
+'Blood Pressure'
+);
+
+insert into Observations values 
+(observation_seq.NEXTVAL,
+TO_DATE('20130604 08:00:00 AM','yyyymmdd hh:mi:ss AM'),
+TO_DATE('20130604 08:05:00 AM','yyyymmdd hh:mi:ss AM'),
+'akazi',
+'Systolic',
+'Diastolic',
+'',
+'170',
+'90',
+'',
+'Blood Pressure'
+);
+----------------------------------------
+insert into Observations values 
+(observation_seq.NEXTVAL,
+TO_DATE('20130604 07:50:00 AM','yyyymmdd hh:mi:ss AM'),
+TO_DATE('20130604 08:00:00 AM','yyyymmdd hh:mi:ss AM'),
+'nshetty',
+'Systolic',
+'Diastolic',
+'',
+'162',
+'110',
+'',
+'Blood Pressure'
+);
+-----------------------------------
+insert into Observations values 
+(observation_seq.NEXTVAL,
+TO_DATE('20130604 07:50:00 AM','yyyymmdd hh:mi:ss AM'),
+TO_DATE('20130604 08:00:00 AM','yyyymmdd hh:mi:ss AM'),
+'nshetty',
+'Scale [1 – 10]',
+'',
+'',
+'8',
+'',
+'',
+'Pain'
+);
+-----------------------------------
